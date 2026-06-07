@@ -10,4 +10,19 @@ package tppe.entities;
  */
 public class IDsDiferentesMesmoAutor {
 
+    public int mapearParaMenorID(int idOriginal, int[] idsDoMesmoAutor) {
+        if (idsDoMesmoAutor == null) {
+            throw new IllegalArgumentException("IDs do mesmo autor nao podem ser nulos");
+        }
+
+        int menorID = idOriginal;
+
+        for (int id : idsDoMesmoAutor) {
+            if (id < menorID) {
+                menorID = id;
+            }
+        }
+
+        return menorID;
+    }
 }
