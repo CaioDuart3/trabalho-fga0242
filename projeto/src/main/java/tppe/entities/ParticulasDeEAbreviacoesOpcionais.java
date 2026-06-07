@@ -7,6 +7,6 @@ package tppe.entities;
  * no uso de pontos após abreviações dos nomes/sobrenome.
  * A forma completa (com o uso da partícula 'de') deve ser considerada padrão.
  */
-public class ParticulasDeAbreveacoes {
+public class ParticulasDeEAbreviacoesOpcionais {
 
 }

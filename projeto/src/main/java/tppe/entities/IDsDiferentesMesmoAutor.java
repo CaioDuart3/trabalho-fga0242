@@ -8,6 +8,6 @@ package tppe.entities;
  * Todos os registros deverão ser mapeados para o mesmo ID, sendo o ID de menor
  * valor eleito para ser utilizado na deduplicação.
  */
-public class MapeamentoIDs {
+public class IDsDiferentesMesmoAutor {
 
 }

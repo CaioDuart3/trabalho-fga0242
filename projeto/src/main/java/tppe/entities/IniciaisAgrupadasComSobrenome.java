@@ -8,6 +8,6 @@ package tppe.entities;
  * o último nome.
  * A versão completa do nome deve ser preferida em relação à versão com abreviações.
  */
-public class IniciaisAgrupadas {
+public class IniciaisAgrupadasComSobrenome {
 
 }

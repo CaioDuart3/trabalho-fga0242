@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import tppe.entities.DifferencasGrafia;
+import tppe.entities.DiferencasDeGrafia;
 
 /**
  * Suite de testes para o Caso 1: Diferencas de grafia (tipograficas).
@@ -21,7 +21,7 @@ public class TestDiferencasDeGrafia {
 
     private final String nomeComDiferencaGrafica;
     private final String nomeEsperado;
-    private DifferencasGrafia differencasGrafia;
+    private DiferencasDeGrafia diferencasDeGrafia;
 
     public TestDiferencasDeGrafia(String nomeComDiferencaGrafica, String nomeEsperado) {
         this.nomeComDiferencaGrafica = nomeComDiferencaGrafica;
@@ -30,7 +30,7 @@ public class TestDiferencasDeGrafia {
 
     @Before
     public void setup() {
-        this.differencasGrafia = new DifferencasGrafia();
+        this.diferencasDeGrafia = new DiferencasDeGrafia();
     }
 
     @Parameters(name = "{index}: {0} -> {1}")
@@ -45,7 +45,7 @@ public class TestDiferencasDeGrafia {
 
     @Test
     public void deveUnificarDiferencasTipograficasParaGrafiaCorreta() {
-        String nomeCorrigido = differencasGrafia.corrigirGrafia(nomeComDiferencaGrafica);
+        String nomeCorrigido = diferencasDeGrafia.corrigirGrafia(nomeComDiferencaGrafica);
         assertEquals(nomeEsperado, nomeCorrigido);
     }
 }

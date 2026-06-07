@@ -12,7 +12,7 @@ import java.util.Map;
  * o mesmo item (apóstrofo, crase ou acento agudo), presença/ausência de cedilha
  * ou acentuação.
  */
-public class DifferencasGrafia {
+public class DiferencasDeGrafia {
 
     private static final Map<String, String> NOMES_PADRAO = new HashMap<>();
 
