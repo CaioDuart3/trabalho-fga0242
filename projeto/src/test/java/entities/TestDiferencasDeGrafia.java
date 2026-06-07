@@ -17,13 +17,13 @@ import tppe.entities.DifferencasGrafia;
  * Suite de testes para o Caso 1: Diferencas de grafia (tipograficas).
  */
 @RunWith(Parameterized.class)
-public class TestDifferencasGrafia {
+public class TestDiferencasDeGrafia {
 
     private final String nomeComDiferencaGrafica;
     private final String nomeEsperado;
     private DifferencasGrafia differencasGrafia;
 
-    public TestDifferencasGrafia(String nomeComDiferencaGrafica, String nomeEsperado) {
+    public TestDiferencasDeGrafia(String nomeComDiferencaGrafica, String nomeEsperado) {
         this.nomeComDiferencaGrafica = nomeComDiferencaGrafica;
         this.nomeEsperado = nomeEsperado;
     }
