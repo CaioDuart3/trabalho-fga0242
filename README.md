@@ -23,6 +23,7 @@ cientificas.
 | Gerenciador de dependencias e build | Apache Maven |
 | Framework de testes unitarios | JUnit 4.13.2 |
 | Executor de testes | Maven Surefire Plugin 3.5.2 |
+| Leitura do banco de dados (JSON) | Gson 2.11.0 |
 
 ## Como clonar o repositorio
 
@@ -85,15 +86,23 @@ O trabalho contempla os cinco casos solicitados no enunciado:
     |-- pom.xml
     `-- src
         |-- main
-        |   `-- java
-        |       `-- tppe
-        |           |-- Main.java
-        |           `-- entities
-        |               |-- DiferencasDeGrafia.java
-        |               |-- IDsDiferentesMesmoAutor.java
-        |               |-- IniciaisAgrupadasComSobrenome.java
-        |               |-- ParticulasDeEAbreviacoesOpcionais.java
-        |               `-- SobrenomeComIniciais.java
+        |   |-- java
+        |   |   `-- tppe
+        |   |       |-- Main.java
+        |   |       |-- entities
+        |   |       |   |-- DiferencasDeGrafia.java
+        |   |       |   |-- IDsDiferentesMesmoAutor.java
+        |   |       |   |-- IniciaisAgrupadasComSobrenome.java
+        |   |       |   |-- ParticulasDeEAbreviacoesOpcionais.java
+        |   |       |   `-- SobrenomeComIniciais.java
+        |   |       `-- repository
+        |   |           |-- NomesPadraoRepository.java
+        |   |           `-- dto
+        |   |               |-- Autor.java
+        |   |               |-- BaseDeNomes.java
+        |   |               `-- Registro.java
+        |   `-- resources
+        |       `-- nomes-padrao.json
         `-- test
             `-- java
                 `-- entities
@@ -107,8 +116,14 @@ O trabalho contempla os cinco casos solicitados no enunciado:
 ## Organização do código
 
 - `docs/enunciado.md`: enunciado original do trabalho pratico.
-- `projeto/pom.xml`: configuracao do Maven, incluindo Java, JUnit e Surefire.
+- `projeto/pom.xml`: configuracao do Maven, incluindo Java, JUnit, Surefire e Gson.
 - `projeto/src/main/java/tppe/entities`: classes responsaveis pelas regras de
   curadoria e deduplicacao.
+- `projeto/src/main/java/tppe/repository`: acesso aos dados e carregamento do
+  banco de autores.
+- `projeto/src/main/java/tppe/repository/dto`: DTOs utilizados para mapear o
+  JSON da base de dados.
+- `projeto/src/main/resources/nomes-padrao.json`: banco de dados (JSON) com os
+  exemplos do enunciado e respectivos dados padrao-ouro.
 - `projeto/src/test/java/entities`: testes unitarios dos cinco casos do
   enunciado.
