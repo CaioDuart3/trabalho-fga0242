@@ -13,7 +13,7 @@ cientificas.
 |:----:|:-----|:----------|
 | <img src="https://github.com/caioduart3.png" width="80" height="80" alt="Foto de Caio Ferreira Duarte"> | [Caio Ferreira Duarte](https://github.com/caioduart3) | 231026901 |
 | <img src="https://github.com/danielle-soaress.png" width="80" height="80" alt="Foto de Nome completo 2"> | [Danielle Soares da Silva](https://github.com/danielle-soaress) | 231012058 |
-| <img src="https://github.com/USUARIO_GITHUB_3.png" width="80" height="80" alt="Foto de Nome completo 3"> | [Nome completo 3](https://github.com/USUARIO_GITHUB_3) | Matricula 3 |
+| <img src="https://github.com/felixlaryssa.png" width="80" height="80" alt="Foto de Nome completo 3"> | [Laryssa Felix Ribeiro Lopes](https://github.com/felixlaryssa) | 231026840 |
 
 ## Tecnologias utilizadas
 
