@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import tppe.repository.NomesPadraoRepository;
+
 /**
  * Caso 3: Partículas 'de' e uso de ponto nas abreviações opcionais
  * 
@@ -14,12 +16,16 @@ import java.util.Map;
  */
 public class ParticulasDeEAbreviacoesOpcionais {
 
-    private static final Map<String, String> NOMES_PADRAO = new HashMap<>();
+    private final Map<String, String> nomesPadrao = new HashMap<>();
 
-    static {
-        adicionarNomePadrao("Luiz de Oliveira de Souza");
-        adicionarNomePadrao("Ana de Mattos Seabra");
-        adicionarNomePadrao("Cassius de Souza");
+    public ParticulasDeEAbreviacoesOpcionais() {
+        this(new NomesPadraoRepository());
+    }
+
+    public ParticulasDeEAbreviacoesOpcionais(NomesPadraoRepository repositorio) {
+        for (String nomePadrao : repositorio.buscarNomesPadrao()) {
+            adicionarNomePadrao(nomePadrao);
+        }
     }
 
     public String unificarNome(String nome) {
@@ -28,12 +34,12 @@ public class ParticulasDeEAbreviacoesOpcionais {
         }
 
         String chave = gerarChaveComparacao(nome);
-        return NOMES_PADRAO.getOrDefault(chave, nome);
+        return nomesPadrao.getOrDefault(chave, nome);
     }
 
-    private static void adicionarNomePadrao(String nomePadrao) {
-        NOMES_PADRAO.put(gerarChaveComparacao(nomePadrao), nomePadrao);
-        NOMES_PADRAO.put(gerarChaveAbreviada(nomePadrao), nomePadrao);
+    private void adicionarNomePadrao(String nomePadrao) {
+        nomesPadrao.put(gerarChaveComparacao(nomePadrao), nomePadrao);
+        nomesPadrao.put(gerarChaveAbreviada(nomePadrao), nomePadrao);
     }
 
     private static String gerarChaveComparacao(String nome) {

@@ -48,4 +48,9 @@ public class TestIDsDiferentesMesmoAutor {
             assertEquals(idUnificadoEsperado, idMapeado);
         }
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void deveLancarExcecaoQuandoArrayDeIDsForNulo() {
+        idsDiferentesMesmoAutor.mapearParaMenorID(31298, null);
+    }
 }

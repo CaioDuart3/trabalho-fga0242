@@ -4,6 +4,8 @@ import java.text.Normalizer;
 import java.util.HashMap;
 import java.util.Map;
 
+import tppe.repository.NomesPadraoRepository;
+
 /**
  * Caso 1: Diferenças de grafia (tipográficas)
  * 
@@ -14,11 +16,16 @@ import java.util.Map;
  */
 public class DiferencasDeGrafia {
 
-    private static final Map<String, String> NOMES_PADRAO = new HashMap<>();
+    private final Map<String, String> nomesPadrao = new HashMap<>();
 
-    static {
-        adicionarNomePadrao("Mônica Hirata Sant'anna");
-        adicionarNomePadrao("Sérgio Henrique Guaraldi");
+    public DiferencasDeGrafia() {
+        this(new NomesPadraoRepository());
+    }
+
+    public DiferencasDeGrafia(NomesPadraoRepository repositorio) {
+        for (String nomePadrao : repositorio.buscarNomesPadrao()) {
+            adicionarNomePadrao(nomePadrao);
+        }
     }
 
     public String corrigirGrafia(String nome) {
@@ -27,11 +34,11 @@ public class DiferencasDeGrafia {
         }
 
         String chave = gerarChaveComparacao(nome);
-        return NOMES_PADRAO.getOrDefault(chave, nome);
+        return nomesPadrao.getOrDefault(chave, nome);
     }
 
-    private static void adicionarNomePadrao(String nomePadrao) {
-        NOMES_PADRAO.put(gerarChaveComparacao(nomePadrao), nomePadrao);
+    private void adicionarNomePadrao(String nomePadrao) {
+        nomesPadrao.put(gerarChaveComparacao(nomePadrao), nomePadrao);
     }
 
     private static String gerarChaveComparacao(String nome) {
