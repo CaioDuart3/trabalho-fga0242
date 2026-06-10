@@ -1,0 +1,116 @@
+{
+  "autores": [
+    {
+      "idPadrao": 28372,
+      "nomePadrao": "Ana de Mattos Seabra",
+      "registros": [
+        { "id": 28372, "nome": "Ana de Mattos Seabra" },
+        { "id": 243349, "nome": "Ana de Mattos Seabra" },
+        { "id": 582585, "nome": "A. M. Seabra" },
+        { "id": 582585, "nome": "Seabra A. M." },
+        { "id": 582585, "nome": "AM Seabra" },
+        { "id": 582585, "nome": "Ana Mattos Seabra" }
+      ]
+    },
+    {
+      "idPadrao": 28371,
+      "nomePadrao": "Cassius de Souza",
+      "registros": [
+        { "id": 28371, "nome": "Cassius de Souza" },
+        { "id": 746936, "nome": "Cassius Souza" },
+        { "id": 746936, "nome": "Souza C." },
+        { "id": 746936, "nome": "C. Souza" },
+        { "id": 746936, "nome": "Souza, Cassius de" }
+      ]
+    },
+    {
+      "idPadrao": 31303,
+      "nomePadrao": "Verônica de Oliveira Moreira",
+      "registros": [
+        { "id": 31303, "nome": "Veronica de Oliveira Moreira" },
+        { "id": 243352, "nome": "Verônica de Oliveira Moreira" },
+        { "id": 608303, "nome": "V. de O. Moreira" },
+        { "id": 608303, "nome": "Moreira V O" },
+        { "id": 608303, "nome": "Moreira V. de O." },
+        { "id": 746941, "nome": "Verônica de Oliveira Noreira" }
+      ]
+    },
+    {
+      "idPadrao": 31297,
+      "nomePadrao": "Luiz de Oliveira de Souza",
+      "registros": [
+        { "id": 746937, "nome": "Luiz de Oliveira de Souza" },
+        { "id": 608296, "nome": "Luiz Oliveira Souza" },
+        { "id": 549242, "nome": "Souza, Luiz de Oliveira" },
+        { "id": 549242, "nome": "Luiz de O. de Souza" },
+        { "id": 31297, "nome": "Souza, L. O." }
+      ]
+    },
+    {
+      "idPadrao": 31299,
+      "nomePadrao": "Mônica Hirata Sant'anna",
+      "registros": [
+        { "id": 31299, "nome": "Monica Hirata Sant`anna" },
+        { "id": 433095, "nome": "Mônica Hirata Sant’anna" },
+        { "id": 746942, "nome": "Mônica Hirata St'anna" },
+        { "id": 549244, "nome": "Sant'anna M. H." },
+        { "id": 608298, "nome": "M. H. Sant'anna" }
+      ]
+    },
+    {
+      "idPadrao": 335284,
+      "nomePadrao": "Vanilda Cristina Junior",
+      "registros": [
+        { "id": 763027, "nome": "Vanilda Cristina Junior" },
+        { "id": 763027, "nome": "Vanilda Cristina Junior" },
+        { "id": 335284, "nome": "Vanilda Cristina Júnior" },
+        { "id": 335284, "nome": "Vanilda Cristina Júnior" },
+        { "id": 335284, "nome": "Vanilda Cristina Júnior" }
+      ]
+    },
+    {
+      "idPadrao": 243350,
+      "nomePadrao": "Sérgio Henrique Guaraldi",
+      "registros": [
+        { "id": 554799, "nome": "Sergio Henrique Guaraldi" },
+        { "id": 243350, "nome": "Sérgio Henrique Guaraldi" },
+        { "id": 954057, "nome": "SH Guaraldi" },
+        { "id": 954057, "nome": "Sérgio Henrique Guaraldi" },
+        { "id": 954057, "nome": "Sérgio Henrique Guaraldi" },
+        { "id": 954057, "nome": "Sérgio Henrique Guaraldi" }
+      ]
+    },
+    {
+      "idPadrao": 31298,
+      "nomePadrao": "Raphael Gonçalves Viana",
+      "registros": [
+        { "id": 31298, "nome": "Raphael Goncalves Viana" },
+        { "id": 433094, "nome": "Raphael Gonçalves Viana" },
+        { "id": 549243, "nome": "Raphael Gonçalves Viana" },
+        { "id": 608297, "nome": "Raphael Gonçalves Viana" },
+        { "id": 746938, "nome": "Raphael Gonçalves Viana" }
+      ]
+    },
+    {
+      "idPadrao": 243351,
+      "nomePadrao": "Lílian Luíza Viana Vieira",
+      "registros": [
+        { "id": 899639, "nome": "Lilian Luíza Viana Vieira" },
+        { "id": 243351, "nome": "Lílian Luíza Viana Vieira" },
+        { "id": 663795, "nome": "Lílian Luíza Viana Vieira" },
+        { "id": 663795, "nome": "Lílian Luíza Viana Vieira" },
+        { "id": 663795, "nome": "Lilian Luíza Viana Vieira" }
+      ]
+    },
+    {
+      "idPadrao": 713897,
+      "nomePadrao": "Yuri Vieira Faria",
+      "registros": [
+        { "id": 713897, "nome": "Yuri Vieira Faria" },
+        { "id": 713897, "nome": "Yuri Vieira Faria" },
+        { "id": 713897, "nome": "Yuri Vieira Faria" },
+        { "id": 713897, "nome": "Yuri Vieira Faria" }
+      ]
+    }
+  ]
+}
