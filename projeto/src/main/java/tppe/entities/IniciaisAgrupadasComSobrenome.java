@@ -4,6 +4,8 @@ import java.text.Normalizer;
 import java.util.HashMap;
 import java.util.Map;
 
+import tppe.repository.NomesPadraoRepository;
+
 /**
  * Caso 4: Iniciais dos nomes agrupadas + sobrenome
  * 
@@ -14,12 +16,16 @@ import java.util.Map;
  */
 public class IniciaisAgrupadasComSobrenome {
 
-    private static final Map<String, String> NOMES_PADRAO = new HashMap<>();
+    private final Map<String, String> nomesPadrao = new HashMap<>();
 
-    static {
-        adicionarNomePadrao("Vanilda Cristina Junior");
-        adicionarNomePadrao("Sérgio Henrique Guaraldi");
-        adicionarNomePadrao("Raphael Gonçalves Viana");
+    public IniciaisAgrupadasComSobrenome() {
+        this(new NomesPadraoRepository());
+    }
+
+    public IniciaisAgrupadasComSobrenome(NomesPadraoRepository repositorio) {
+        for (String nomePadrao : repositorio.buscarNomesPadrao()) {
+            adicionarNomePadrao(nomePadrao);
+        }
     }
 
     public String unificarNome(String nome) {
@@ -28,12 +34,12 @@ public class IniciaisAgrupadasComSobrenome {
         }
 
         String chave = gerarChaveComparacao(nome);
-        return NOMES_PADRAO.getOrDefault(chave, nome);
+        return nomesPadrao.getOrDefault(chave, nome);
     }
 
-    private static void adicionarNomePadrao(String nomePadrao) {
-        NOMES_PADRAO.put(gerarChaveComparacao(nomePadrao), nomePadrao);
-        NOMES_PADRAO.put(gerarChaveAgrupada(nomePadrao), nomePadrao);
+    private void adicionarNomePadrao(String nomePadrao) {
+        nomesPadrao.put(gerarChaveComparacao(nomePadrao), nomePadrao);
+        nomesPadrao.put(gerarChaveAgrupada(nomePadrao), nomePadrao);
     }
 
     private static String gerarChaveComparacao(String nome) {

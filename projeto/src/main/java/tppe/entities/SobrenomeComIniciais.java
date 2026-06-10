@@ -4,6 +4,8 @@ import java.text.Normalizer;
 import java.util.HashMap;
 import java.util.Map;
 
+import tppe.repository.NomesPadraoRepository;
+
 /**
  * Caso 2: Sobrenome + Iniciais dos nomes
  * 
@@ -14,11 +16,16 @@ import java.util.Map;
 public class SobrenomeComIniciais {
 
     private static final String PARTICULA_DE = "de";
-    private static final Map<String, String> NOMES_PADRAO = new HashMap<>();
+    private final Map<String, String> nomesPadrao = new HashMap<>();
 
-    static {
-        adicionarNomePadrao("Ana de Mattos Seabra");
-        adicionarNomePadrao("Cassius de Souza");
+    public SobrenomeComIniciais() {
+        this(new NomesPadraoRepository());
+    }
+
+    public SobrenomeComIniciais(NomesPadraoRepository repositorio) {
+        for (String nomePadrao : repositorio.buscarNomesPadrao()) {
+            adicionarNomePadrao(nomePadrao);
+        }
     }
 
     public String unificarNome(String nome) {
@@ -27,12 +34,12 @@ public class SobrenomeComIniciais {
         }
 
         String chave = gerarChaveComparacao(nome);
-        return NOMES_PADRAO.getOrDefault(chave, nome);
+        return nomesPadrao.getOrDefault(chave, nome);
     }
 
-    private static void adicionarNomePadrao(String nomePadrao) {
-        NOMES_PADRAO.put(gerarChaveComparacao(nomePadrao), nomePadrao);
-        NOMES_PADRAO.put(gerarChaveSobrenomeComIniciais(nomePadrao), nomePadrao);
+    private void adicionarNomePadrao(String nomePadrao) {
+        nomesPadrao.put(gerarChaveComparacao(nomePadrao), nomePadrao);
+        nomesPadrao.put(gerarChaveSobrenomeComIniciais(nomePadrao), nomePadrao);
     }
 
     private static String gerarChaveComparacao(String nome) {

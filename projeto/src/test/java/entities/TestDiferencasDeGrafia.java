@@ -39,7 +39,8 @@ public class TestDiferencasDeGrafia {
             { "Monica Hirata Sant`anna", "Mônica Hirata Sant'anna" },
             { "Mônica Hirata Sant’anna", "Mônica Hirata Sant'anna" },
             { "Sergio Henrique Guaraldi", "Sérgio Henrique Guaraldi" },
-            { "Sérgio Henrique Guaraldi", "Sérgio Henrique Guaraldi" }
+            { "Sérgio Henrique Guaraldi", "Sérgio Henrique Guaraldi" },
+            { "Veronica de Oliveira Moreira", "Verônica de Oliveira Moreira" }
         });
     }
 
@@ -47,5 +48,10 @@ public class TestDiferencasDeGrafia {
     public void deveUnificarDiferencasTipograficasParaGrafiaCorreta() {
         String nomeCorrigido = diferencasDeGrafia.corrigirGrafia(nomeComDiferencaGrafica);
         assertEquals(nomeEsperado, nomeCorrigido);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void deveLancarExcecaoQuandoNomeForNulo() {
+        diferencasDeGrafia.corrigirGrafia(null);
     }
 }
