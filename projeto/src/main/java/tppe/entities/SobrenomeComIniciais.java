@@ -13,6 +13,7 @@ import java.util.Map;
  */
 public class SobrenomeComIniciais {
 
+    private static final String PARTICULA_DE = "de";
     private static final Map<String, String> NOMES_PADRAO = new HashMap<>();
 
     static {
@@ -44,16 +45,24 @@ public class SobrenomeComIniciais {
     }
 
     private static String gerarChaveSobrenomeComIniciais(String nomePadrao) {
-        String[] tokens = gerarChaveComparacao(nomePadrao)
-                .replaceAll("\\bde\\b", "")
-                .replaceAll("\\s+", " ")
-                .trim()
-                .split("\\s+");
+        String[] tokens = extrairTokensSemParticulas(nomePadrao);
 
         if (tokens.length <= 1) {
             return String.join(" ", tokens);
         }
 
+        return montarChaveComSobrenomeEIniciais(tokens);
+    }
+
+    private static String[] extrairTokensSemParticulas(String nome) {
+        return gerarChaveComparacao(nome)
+                .replaceAll("\\b" + PARTICULA_DE + "\\b", "")
+                .replaceAll("\\s+", " ")
+                .trim()
+                .split("\\s+");
+    }
+
+    private static String montarChaveComSobrenomeEIniciais(String[] tokens) {
         StringBuilder chave = new StringBuilder(tokens[tokens.length - 1]);
 
         for (int i = 0; i < tokens.length - 1; i++) {
