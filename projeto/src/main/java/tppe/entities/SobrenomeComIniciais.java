@@ -29,10 +29,18 @@ public class SobrenomeComIniciais {
     }
 
     public String unificarNome(String nome) {
+        validarNome(nome);
+
+        return buscarNomePadrao(nome);
+    }
+
+    private void validarNome(String nome) {
         if (nome == null) {
             throw new IllegalArgumentException("Nome nao pode ser nulo");
         }
+    }
 
+    private String buscarNomePadrao(String nome) {
         String chave = gerarChaveComparacao(nome);
         return nomesPadrao.getOrDefault(chave, nome);
     }
