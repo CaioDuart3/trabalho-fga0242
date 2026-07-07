@@ -1,6 +1,5 @@
 package tppe.entities;
 
-import java.text.Normalizer;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,14 +14,16 @@ import tppe.repository.NomesPadraoRepository;
  */
 public class SobrenomeComIniciais {
 
-    private static final String PARTICULA_DE = "de";
     private final Map<String, String> nomesPadrao = new HashMap<>();
+    private final GeradorDeChavesSobrenomeComIniciais geradorDeChaves;
 
     public SobrenomeComIniciais() {
         this(new NomesPadraoRepository());
     }
 
     public SobrenomeComIniciais(NomesPadraoRepository repositorio) {
+        this.geradorDeChaves = new GeradorDeChavesSobrenomeComIniciais();
+
         for (String nomePadrao : repositorio.buscarNomesPadrao()) {
             adicionarNomePadrao(nomePadrao);
         }
@@ -33,54 +34,12 @@ public class SobrenomeComIniciais {
             throw new IllegalArgumentException("Nome nao pode ser nulo");
         }
 
-        String chave = gerarChaveComparacao(nome);
+        String chave = geradorDeChaves.gerarChaveComparacao(nome);
         return nomesPadrao.getOrDefault(chave, nome);
     }
 
     private void adicionarNomePadrao(String nomePadrao) {
-        nomesPadrao.put(gerarChaveComparacao(nomePadrao), nomePadrao);
-        nomesPadrao.put(gerarChaveSobrenomeComIniciais(nomePadrao), nomePadrao);
-    }
-
-    private static String gerarChaveComparacao(String nome) {
-        return removerAcentos(nome)
-                .toLowerCase()
-                .trim()
-                .replace(".", "")
-                .replace(",", "")
-                .replaceAll("\\s+", " ");
-    }
-
-    private static String gerarChaveSobrenomeComIniciais(String nomePadrao) {
-        String[] tokens = extrairTokensSemParticulas(nomePadrao);
-
-        if (tokens.length <= 1) {
-            return String.join(" ", tokens);
-        }
-
-        return montarChaveComSobrenomeEIniciais(tokens);
-    }
-
-    private static String[] extrairTokensSemParticulas(String nome) {
-        return gerarChaveComparacao(nome)
-                .replaceAll("\\b" + PARTICULA_DE + "\\b", "")
-                .replaceAll("\\s+", " ")
-                .trim()
-                .split("\\s+");
-    }
-
-    private static String montarChaveComSobrenomeEIniciais(String[] tokens) {
-        StringBuilder chave = new StringBuilder(tokens[tokens.length - 1]);
-
-        for (int i = 0; i < tokens.length - 1; i++) {
-            chave.append(" ").append(tokens[i].charAt(0));
-        }
-
-        return chave.toString();
-    }
-
-    private static String removerAcentos(String texto) {
-        return Normalizer.normalize(texto, Normalizer.Form.NFD)
-                .replaceAll("\\p{M}", "");
+        nomesPadrao.put(geradorDeChaves.gerarChaveComparacao(nomePadrao), nomePadrao);
+        nomesPadrao.put(geradorDeChaves.gerarChaveSobrenomeComIniciais(nomePadrao), nomePadrao);
     }
 }
